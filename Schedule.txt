@@ -1,0 +1,10 @@
+Deactivate
+admin 更改 thera 类型
+DEBUG = False
+crsf token
+admin 处理问题
+admin 权限设置界面
+
+
+
+

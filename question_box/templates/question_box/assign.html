@@ -1,0 +1,94 @@
+{% extends "question_box/layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <h2>Assign</h2>
+    {% if title == "unassigned" %}
+        <a href="{% url 'assign' 'unassigned' %}" style="color: darkgray;">Unassigned</a>
+        <a href="{% url 'assign' 'assigned' %}">Assigned</a>
+    {% endif %}
+    {% if title == "assigned" %}
+        <a href="{% url 'assign' 'unassigned' %}">Unassigned</a>
+        <a href="{% url 'assign' 'assigned' %}" style="color: darkgray;">Assigned</a>
+    {% endif %}
+    <hr>
+    {% for box in boxes %}
+        {% if box.questions %}
+        <div class="border border-primary box">
+            <br>
+            {% for q_a in box.q_a_list %}
+                {% if q_a.type == "question" %}
+                    <div style="font-size: large; margin-left: 10px; margin-right:10px">Q: {{ q_a.content.question|linebreaks }}</div>
+                    <p style="font-size: small; color:gray; margin-left: 10px">Asked at {{ q_a.content.timestamp }}</p>
+                    {% if not q_a.content.post %}
+                        <p style="color:gray; font-size: small; margin-left: 10px;" id="post_identifier{{ q_a.content.id }}">Waiting to be
+                        posted</p>
+                    {% else %}
+                        <p style="color:gray; font-size: small; margin-left: 10px;" id="post_identifier{{ q_a.content.id }}">Already posted</p>
+                    {% endif %}
+                {% endif %}
+
+                {% if q_a.type == "answer" %}
+                    <div style="font-size: large; margin-left: 10px; margin-right:10px">A: {{ q_a.content.answer|linebreaks }}</div>
+                    {% if not q_a.content.confirmed %}
+                        <p id="confirm{{ q_a.content.id }}" style="color:red; font-size: large; margin-left: 10px;"><strong>Unconfirmed</strong></p>
+                    {% else %}
+                        <p id="confirm{{ q_a.content.id }}" style="color:red; font-size: large; margin-left: 10px;"><strong>Confirmed</strong></p>
+                    {% endif %}
+                {% endif %}
+                <hr>
+            {% endfor %}
+            <div style="margin-left: 10px">
+                <label for="answered_by{{ box.id }}">Assign a therapist to answer</label>
+                <select class="form-control" style="width:200px" id="answered_by{{ box.id }}">
+                {% for thera in theras %}
+                    {% if thera == box.answered_by %}
+                        <option selected>{{ thera.username }}</option>
+                    {% else %}
+                        <option>{{ thera.username }}</option>
+                    {% endif %}
+                {% endfor %}
+                </select>
+                <br>
+                <label for="confirmed_by{{ box.id }}">Assign a therapist to confirm</label>
+                <select class="form-control" style="width:200px" id="confirmed_by{{ box.id }}">
+                {% for thera in theras %}
+                    {% if thera == box.confirmed_by %}
+                        <option selected>{{ thera.username }}</option>
+                    {% else %}
+                        <option>{{ thera.username }}</option>
+                    {% endif %}
+                {% endfor %}
+                </select>
+                <br>
+                <button class="btn btn-primary" id="submit{{ box.id }}">OK</button>
+            </div>
+            <br>
+            {% if box.answered_by %}
+                <p style="color:red; font-size: large; margin-left: 10px;">Assigned to <strong>{{ box.answered_by.username }}</strong> to answer and
+                    <strong>{{ box.confirmed_by.username }}</strong> to
+                    confirm
+                </p>
+            {% else %}
+                <p style="color:red; font-size: large; margin-left: 10px;"><strong>Unassigned</strong></p>
+            {% endif %}
+
+            {% if not box.answered %}
+                <p style="color:red; font-size: large; margin-left: 10px;"><strong>Unanswered</strong></p>
+            {% else %}
+                <p style="color:red; font-size: large; margin-left: 10px;"><strong>Answered</strong></p>
+            {% endif %}
+
+            <p style="color: red;margin-left:10px"><strong><i>{{ box.topic }}</i></strong></p>
+            
+        </div>
+        <br>  
+        {% endif %}
+    {% endfor %}
+    <script src="{% static 'question_box/js/assign.js' %}"></script>
+{% endblock %}

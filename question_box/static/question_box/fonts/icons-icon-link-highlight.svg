@@ -1,0 +1,24 @@
+<svg width="73px" height="71px" viewBox="0 0 73 71" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-0.5%" y="-4.4%" width="101.1%" height="108.7%" filterUnits="objectBoundingBox" id="filter-116572531273612">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.867329031   0 0 0 0 0.867329031   0 0 0 0 0.867329031  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-1040.000000, 1.000000)" fill="#333333">
+            <g filter="url(#filter-116572531273612)">
+                <g transform="translate(533.000000, 0.000000)">
+                    <g transform="translate(509.000000, 0.000000)">
+                        <path d="M0,0 L69,0 L69,53 L36.8764969,66.2273248 C35.673167,66.7228136 34.3240676,66.729627 33.1157945,66.2463178 L33.1157945,66.2463178 L0,53 L0,0 Z"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

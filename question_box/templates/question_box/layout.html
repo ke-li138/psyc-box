@@ -1,0 +1,294 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+
+  <head>
+
+    <link rel="stylesheet" href="{% static 'question_box/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'question_box/css/styles.css' %}" >
+    <meta charset="utf-8">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="favicon-generator" content="Drupal responsive_favicons + realfavicongenerator.net">
+    <meta name="Generator" content="Drupal 9 (https://www.drupal.org)">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Psyc Box</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Fira+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&amp;family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-ajax-progress.module.css' %}">
+    <link rel="stylesheet" media="all"
+      href="{% static 'question_box/css/components-autocomplete-loading.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-fieldgroup.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-container-inline.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-clearfix.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-details.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-hidden.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-item-list.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-js.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-nowrap.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-position-container.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-progress.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-reset-appearance.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-resize.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-sticky-header.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-system-status-counter.css' %}">
+    <link rel="stylesheet" media="all"
+      href="{% static 'question_box/css/components-system-status-report-counters.css' %}">
+    <link rel="stylesheet" media="all"
+      href="{% static 'question_box/css/components-system-status-report-general-info.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-tabledrag.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-tablesort.module.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/components-tree-child.module.css' %}">
+    <link rel="stylesheet" media="all" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/css-social_media_links.theme.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/extlink-extlink.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/css-paragraphs.unpublished.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/css-style.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/css-overrides.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'question_box/css/vendor-swiper-bundle.min.css' %}">
+    <link rel="stylesheet" media="all" href="https://catalog.usfca.edu/widget-api/widget-api.min.css">
+  </head>
+
+  <body class="landing-page transparent-header path-node page-node-type-landing landing">
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5R5S7NK" height="0" width="0"
+        style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+    <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+      <header id="l--main-header">
+        <div class="region region-header r--region r--header">
+          <div class="cc--component-container cc--header" aria-label="Site Header">
+            <div class="c--component c--header">
+              <div id="block-alertbannerblock" class="block block-usfca-alert block-alert-banner-block">
+                <div>
+                  <div class="clear-both alert-banner-block-container"></div>
+                </div>
+              </div>
+              <div class="header-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light bg-warning" style="width:100%">
+                  <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'index' %}" id="conselling_box">
+                      {% trans "解忧杂货箱" %}
+                    </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}" id="home">{% trans "主页" %}<span
+                            class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'all_questions' %}" id="all_questions">{% trans "所有问题" %}</a>
+                      </li>
+                      {% if user.user_type == "user" or not request.user.is_authenticated %}
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'ask' %}" id="share">{% trans "提出问题" %}</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'my_questions' %}" id="my_questions">{% trans "我的问题" %}</a>
+                        </li>
+                      {% else %}
+                        {% if user.user_type == "admin" or request_user.user_type == "admin" %}
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'post' 'unposted' %}">Post</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'assign' 'unassigned' %}">Assign</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{% url 'therapists' 'active' %}">Therapists</a>
+                          </li>
+                        {% endif %}
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url 'answer' request.user.username 'unanswered' %}">Answering</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link"
+                            href="{% url 'confirm' request.user.username 'unconfirmed' %}">Confirmation</a>
+                        </li>
+                      {% endif%}
+                      <!-- <li class="nav-item">
+                        <a class="nav-link" id="a-lang">Language</a>
+                      </li>
+                      <select class="form-select bg-warning" aria-label="Default select example" id="lang">
+                        <option value="eng">English</option>
+                        <option value="chinese">中文</option>
+                      </select> -->
+                      <!-- <script>
+                        document.querySelector("#lang").onchange = () =>
+                        {
+                          document.querySelector("#conselling_box").innerText = "心理咨询箱";
+                          document.querySelector("#home").innerText = "主页";
+                          document.querySelector("#all_questions").innerText = "所有问题";
+                          document.querySelector("#share").innerText = "分享你的问题";
+                          document.querySelector("#my_questions").innerText = "我的问题";
+                          document.querySelector("#a-lang").innerText = "语言";
+                          document.querySelector("#signed_in_as").innerText = "登录为";
+                          document.querySelector("#logout").innerText = "退出登录";
+                          docuemnt.querySelector("#login").innerText = "登录";
+                          document.querySelector("#register").innerText = "注册";
+                        }
+                      </script> -->
+                    </ul>
+                  </div>
+                  <span class="navbar-text">
+                    <span><strong><a href="\zh-hans\">中文</a></strong></span>
+                    &nbsp &nbsp &nbsp 
+                    <span><strong><a href="\en\">English</a></strong></span>
+                    &nbsp &nbsp &nbsp 
+                    {% if request.user.is_authenticated %}
+                    <span id="signed_in_as"> {% trans "登录为" %} </span> <strong>{{ request.user.username }}</strong>
+                    &nbsp &nbsp &nbsp
+                    <a id="logout" href="{% url 'logout' %}"> {% trans "退出登录" %} </a>
+                    {% else %}
+                    <a id="login" href="{% url 'login' %}">{% trans "登录" %}</a>
+                    &nbsp &nbsp &nbsp
+                    <a id="register" href="{% url 'register' %}">{% trans "注册" %}</a>
+                    {% endif %}
+                  </span>
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="main-content">
+
+        <div class="l--content">
+
+          <div class="above-content">
+          </div>
+
+          <div class="content">
+
+            <div class="region region-content r--region r--content">
+              <div data-drupal-messages-fallback class="hidden"></div>
+
+              <div id="block-usfca-mainpagecontent"
+                class="tc--template-container tc--landing-page block block-system block-system-main-block">
+                <div class="t--template t--landing-page">
+                  <div class="content-top">
+                    <div class="lc--layout-container lc--full">
+                      <div class="l--layout l--full">
+                        <div class="lr--layout-region lr--main">
+                          <section class="cc--component-container cc--hero-landing-page " aria-label="Landing Hero">
+                            <div class="c--component c--hero-landing-page">
+                              <div class="image-text-container ">
+                                <div class="image-video">
+                                  <div class="f--field f--image">
+                                    {% block img %}
+                                    {% endblock %}
+                                  </div>
+                                </div>
+                                <div class="text-container">
+                                  <div class="f--field f--category">
+                                    <!-- small text on the picture -->
+                                  </div>
+                                  <div class="f--field f--page-title">
+                                    <h1>{% trans "一个自由倾诉的安全空间" %}</h1>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                          <div id="block-breadcrumbs-2"
+                            class="cc--component-container cc--breadcrumbs block block-system block-system-breadcrumb-block">
+                            <div class="c--component c--breadcrumbs">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="content-main">
+                    <div class="lc--layout-container lc--full">
+                      <div class="l--layout l--full">
+                        <div class="lr--layout-region lr--main">
+                          <section class="cc--component-container cc--rich-text-intro-text " aria-label="Intro Text">
+                            <div class="c--component c--rich-text-intro-text">
+                              {% block body %}
+                              {% endblock%}
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer id="l--main-footer" class="site-footer">
+        <h2 class="visually-hidden">Site Footer</h2>
+        <div class="r--region r--footer">
+          <div class="cc--component-container cc--footer">
+            <div class="c--component c--footer">
+              <div class="footer-main">
+                <div class="footer-top">
+                  <div class="branding-social-container region region-footer-branding r--region r--footer-branding">
+                    <div id="block-footer-sitebranding"
+                      class="cc--component-container cc--branding-footer block block-system block-system-branding-block">
+                    </div>
+                    <div id="block-footer-description"
+                      class="cc--component-container cc--footer-contact block block-system block-system-branding-block">
+                      <div id="block-socialmedialinks"
+                        class="block-social-media-links cc--component-container cc--footer-social block block-social-media-links-block">
+                        <div class="c--component c--footer-social">
+                          <div class="footer-social-container">
+                            <h3 class="visually-hidden">Follow us</h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menu-container region region-footer-menu r--region r--footer-menu">
+                    </div>
+                  </div>
+                </div>
+                <div class="footer-bottom">
+                  <div class="info-container region region-footer-info r--region r--footer-info">
+                    <!--以上为footer links-->
+                    <div id="block-footer-links"
+                      class="cc--component-container cc--footer-links block block-system block-system-menu-blockfooter-links">
+                      <div class="c--component c--footer-links" style="color:white; margin-left: 100px;">
+                        {% trans "该平台仅适用于同伴间的自我帮助；如有专业的心理咨询需求，请寻找相关的医疗资源" %}
+                        <br>
+                        <br>
+                        Contact us at Jim_Leek@hotmail.com
+                      </div>
+                    </div>
+                    <div id="block-footer-copyright" class="block block-system block-system-branding-block">
+                      <div>
+                        <div class="f--field f--wysiwyg">
+                          <p>Copyright &copy; 2023 SDSZ Psyc Box</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+</html>

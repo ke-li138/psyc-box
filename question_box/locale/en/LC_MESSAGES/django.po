@@ -1,0 +1,317 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-25 12:21+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: question_box/templates/question_box/all_questions.html:16
+#: question_box/templates/question_box/index.html:26
+#: question_box/templates/question_box/index.html:54
+#: question_box/templates/question_box/layout.html:94
+msgid "所有问题"
+msgstr "All Dialogues"
+
+#: question_box/templates/question_box/all_questions.html:27
+#: question_box/templates/question_box/my_questions.html:29
+msgid "提问于"
+msgstr "Asked at"
+
+#: question_box/templates/question_box/ask.html:12
+msgid "和我们分享您的问题!"
+msgstr "Share Your Problems With Us!"
+
+#: question_box/templates/question_box/ask.html:13
+msgid "如果您不想公布您的对话，请在问题的开头写上：（我不想公开这段对话）"
+msgstr ""
+"If You DO NOT Wish to Publish Your Dialogue, Please Write (I DO NOT want to "
+"publish this dialogue) at the Beginning"
+
+#: question_box/templates/question_box/ask.html:14
+msgid "注意：问题提交之后不能更改"
+msgstr "NOTICE: Your Problem Could Not Be Altered After Submission!"
+
+#: question_box/templates/question_box/ask.html:19
+msgid "在这里提出您的问题！"
+msgstr "Submit Your Problem Here!"
+
+#: question_box/templates/question_box/ask.html:22
+msgid "请给您的问题选择一个类别"
+msgstr "Please Choose a Category For Your Probelm"
+
+#: question_box/templates/question_box/ask.html:25
+msgid "家庭"
+msgstr "Family"
+
+#: question_box/templates/question_box/ask.html:26
+msgid "学业"
+msgstr "Study"
+
+#: question_box/templates/question_box/ask.html:27
+msgid "社交"
+msgstr "Social"
+
+#: question_box/templates/question_box/ask.html:28
+msgid "个人发展"
+msgstr "Personal Development"
+
+#: question_box/templates/question_box/ask.html:30
+msgid "其他"
+msgstr "Other"
+
+#: question_box/templates/question_box/ask.html:32
+#: question_box/templates/question_box/my_questions.html:117
+msgid "提交"
+msgstr "Submit"
+
+#: question_box/templates/question_box/ask.html:38
+msgid "您确定要提交吗？请注意，您的问题无法进行修改"
+msgstr ""
+"Are you sure to submit your problem? Please note that your problem could not "
+"be editted"
+
+#: question_box/templates/question_box/index.html:16
+#: question_box/templates/question_box/layout.html:81
+msgid "解忧杂货箱"
+msgstr "Psyc Box"
+
+#: question_box/templates/question_box/index.html:18
+msgid ""
+"实验中学的解忧杂货箱意图帮助所有同学.如果你渴望得到帮助但不敢当面向老师和同学"
+"们表达，在这里你可以自由地倾诉！它可以是任何方面的困惑，家庭上，学业上，交友"
+"上，或者关于未来与发展。感觉友谊没有得到重视？考试前抑或考试后的焦虑？和父母"
+"吵架却不知如何走出？生活总有不如意，箱子的存在就是为了解决大家的烦恼。所有，"
+"尽管问!"
+msgstr ""
+"The Psyc Box at Experimental High School aims to assist all students. If you "
+"desire help but are hesitant to express your concerns to teachers and "
+"classmates in person, here you can freely confide! It can be any kind of "
+"distress, whether it's related to family, academics, friendships, or your "
+"future and development. Feel like your friendships are not receiving the "
+"attention they deserve? Anxious before or after exams? Engaged in a dispute "
+"with your parents and unsure how to resolve it? Life always has its "
+"challenges, and the purpose of this box is to help everyone. So go ahead, "
+"and submit your problems!"
+
+#: question_box/templates/question_box/index.html:22
+msgid ""
+"问，就会得到解答！我们会尽快将你的问题传递给一位心理爱好者，并在经过心理彭勃"
+"老师的核对后将回复发送到对话区。你也可以进一步跟进对话，我们相信通过这样的感"
+"受分享和多次互动，你会变得更好。"
+msgstr ""
+"Whenever you submit your problem, you will receive answers! We will send "
+"your questions to our volunteers passionate about psychology, and after "
+"verified by our Psychology Teacher Mr.Peng, the response will be sent to you "
+"in the chat box. You can also continue the conversation within the same chat "
+"box with the same volunteer, as we believe that through such experiences of "
+"sharing and continuous interactions, your mental health will be improved!"
+
+#: question_box/templates/question_box/index.html:26
+msgid ""
+"你的匿名对话将展示给所有登陆网站的同学，这可能会极大的帮助到更多承受压力和烦"
+"恼的同学！（查看"
+msgstr ""
+"Your anonymous conversation will be displayed to all students who log onto "
+"the website, which could greatly assist other students who are under stress "
+"and facing difficulties! (View "
+
+#: question_box/templates/question_box/index.html:27
+msgid ""
+"）说到匿名，请尽可能放心，所有的问题全部是匿名提出的。我们不会知道问题的发出"
+"者是谁，ta来自哪个年级，以及更多的个人信息。这些我们都不会知道。你甚至可以在"
+"注册账户中使用昵称，而不必透露任何姓名。如果你希望提供更多的背景信息，以供志"
+"愿者更具针对性的回复，完全可以在问题中加入！"
+msgstr ""
+")Speaking of anonymity, please rest assured as all questions are completely "
+"anonymous. We will not know who asked the question, their grade, or any "
+"other personal information. We won't know any of that. You can even use a "
+"nickname when creating your account, without disclosing any real names. If "
+"you wish to provide more background information for a more targeted response "
+"from volunteers, feel free to include it in your question!"
+
+#: question_box/templates/question_box/index.html:33
+msgid ""
+"最后，我们改进了之前Tape提问箱的许多弊端，以及最重要的是，希望你能够喜欢！"
+msgstr ""
+"Finally, we've addressed many of the shortcomings of our previous WeChat "
+"miniprogram \"Tape Question Box,\" and, most importantly, we hope you enjoy "
+"it!"
+
+#: question_box/templates/question_box/index.html:37
+msgid "接下来你可以:"
+msgstr "Next, You Could:"
+
+#: question_box/templates/question_box/index.html:42
+msgid "让我们开始,"
+msgstr "Let's Start,"
+
+#: question_box/templates/question_box/index.html:42
+#: question_box/templates/question_box/layout.html:159
+#: question_box/templates/question_box/login.html:30
+#: question_box/templates/question_box/register.html:12
+#: question_box/templates/question_box/register.html:36
+msgid "注册"
+msgstr "Register"
+
+#: question_box/templates/question_box/index.html:42
+msgid "一个帐户！"
+msgstr "an account!"
+
+#: question_box/templates/question_box/index.html:48
+msgid "分享你的情绪状态！点击网页顶部的"
+msgstr "Share Your Problems! Click on the tag"
+
+#: question_box/templates/question_box/index.html:48
+#: question_box/templates/question_box/layout.html:98
+msgid "提出问题"
+msgstr "Share Problems"
+
+#: question_box/templates/question_box/index.html:54
+msgid "获取更多灵感！查看网站顶部的"
+msgstr "Gain Some Inspiration! Click on the tag"
+
+#: question_box/templates/question_box/layout.html:90
+msgid "主页"
+msgstr "Home"
+
+#: question_box/templates/question_box/layout.html:101
+#: question_box/templates/question_box/my_questions.html:16
+msgid "我的问题"
+msgstr "My Dialogues"
+
+#: question_box/templates/question_box/layout.html:153
+msgid "登录为"
+msgstr "Signed in as"
+
+#: question_box/templates/question_box/layout.html:155
+msgid "退出登录"
+msgstr "Log Out"
+
+#: question_box/templates/question_box/layout.html:157
+#: question_box/templates/question_box/login.html:12
+#: question_box/templates/question_box/login.html:27
+#: question_box/templates/question_box/register.html:39
+msgid "登录"
+msgstr "Sign In"
+
+#: question_box/templates/question_box/layout.html:203
+msgid "一个自由倾诉的安全空间"
+msgstr "A Safe Space For Open Sharing"
+
+#: question_box/templates/question_box/layout.html:271
+msgid ""
+"该平台仅适用于同伴间的自我帮助；如有专业的心理咨询需求，请寻找相关的医疗资源"
+msgstr "This platform is only used for self-support between peers; if professional psychological consulting services are required, please seek related medical resources"
+
+#: question_box/templates/question_box/login.html:20
+#: question_box/templates/question_box/register.html:21
+msgid "用户名"
+msgstr "User Name"
+
+#: question_box/templates/question_box/login.html:24
+#: question_box/templates/question_box/register.html:29
+msgid "密码"
+msgstr "Password"
+
+#: question_box/templates/question_box/login.html:30
+msgid "没有账号？"
+msgstr "Don't have an account?"
+
+#: question_box/templates/question_box/my_questions.html:17
+msgid ""
+"当您收到回复之后，可以选择点击“继续该聊天”与同一咨询师继续对话（否则与您对话"
+"的可能是另一位咨询师）"
+msgstr ""
+"When You Receive Your Reply, You Could Click \"Continue This Dialogue\" to "
+"Communicate with the SAME Volunteer Counselor in the SAME Chat Box "
+"(Otherwise You Might Be Talking to Other Volunteer Counselor)"
+
+#: question_box/templates/question_box/my_questions.html:57
+msgid "回答于"
+msgstr "Answered at"
+
+#: question_box/templates/question_box/my_questions.html:68
+#: question_box/templates/question_box/my_questions.html:99
+msgid "继续该聊天"
+msgstr "Continue This Dialogue"
+
+#: question_box/templates/question_box/my_questions.html:71
+msgid "请等待回复"
+msgstr "Please Wait for Our Reply"
+
+#: question_box/templates/question_box/my_questions.html:137
+msgid "取消"
+msgstr "Cancel"
+
+#: question_box/templates/question_box/my_questions.html:152
+msgid "问题成功提交。我们会很快答复!"
+msgstr "Question submitted successfully. We will reply to you soon!"
+
+#: question_box/templates/question_box/register.html:25
+msgid "邮箱"
+msgstr "Email"
+
+#: question_box/templates/question_box/register.html:33
+msgid "重新输入密码"
+msgstr "Re-enter the password"
+
+#: question_box/templates/question_box/register.html:39
+msgid "已有账户？"
+msgstr "Already have an account?"
+
+#: question_box/views.py:94
+msgid "用户名或密码不正确"
+msgstr "Incorrect username or password"
+
+#: question_box/views.py:110
+msgid "两次输入的密码不相符！"
+msgstr "Two passwords are inconsistent"
+
+#: question_box/views.py:120
+msgid "用户名已被占用，请换一个"
+msgstr "Username already taken. Please use another one"
+
+#~ msgid "问，就会得到解答...变得更好。"
+#~ msgstr ""
+#~ "Whenever you submit your problem, you will receive answers! We will send "
+#~ "your questions to our volunteers passionate about psychology, and after "
+#~ "verified by our Psychology Teacher Mr.Peng, the response will be sent to "
+#~ "you in the chat box. You can also continue the conversation within the "
+#~ "same chat box with the same volunteer, as we believe that through such "
+#~ "experiences of sharing and continuous interactions, your mental health "
+#~ "will be improved!"
+
+#~ msgid "）说到匿名，请尽管放心...在问题中加入！"
+#~ msgstr ""
+#~ ")Speaking of anonymity, please rest assured as all questions are "
+#~ "completely anonymous. We will not know who asked the question, their "
+#~ "grade, or any other personal information. We won't know any of that. You "
+#~ "can even use a nickname when creating your account, without disclosing "
+#~ "any real names. If you wish to provide more background information for a "
+#~ "more targeted response from volunteers, feel free to include it in your "
+#~ "question!"
+
+#~ msgid "实验中学的解忧杂货箱...尽管问！"
+#~ msgstr ""
+#~ "The Psyc Box at Experimental High School aims to assist all students. If "
+#~ "you desire help but are hesitant to express your concerns to teachers and "
+#~ "classmates in person, here you can freely confide! It can be any kind of "
+#~ "distress, whether it's related to family, academics, friendships, or your "
+#~ "future and development. Feel like your friendships are not receiving the "
+#~ "attention they deserve? Anxious before or after exams? Engaged in a "
+#~ "dispute with your parents and unsure how to resolve it? Life always has "
+#~ "its challenges, and the purpose of this box is to help everyone. So go "
+#~ "ahead, and submit your problems!"

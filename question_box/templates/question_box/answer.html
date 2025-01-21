@@ -1,0 +1,141 @@
+{% extends "question_box/layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+
+{% if user.user_type == "admin" %}
+Answering
+
+{% else %}
+{{ user.username }}'s Answering
+{% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+<!-- The page that the admin sees, showing all the  questions -->
+{% if user.user_type == "admin" %}
+<h2 id="{{ user.username }}">Answering</h2>
+
+<!-- The page that the thera sees, showing all the questions to be answered by him -->
+{% else %}
+<h2 id="{{ user.username }}">{{ user.username }}'s Answering</h2>
+{% endif %}
+
+{% if title == "unanswered" %}
+<a href="{% url 'answer' user.username 'unanswered' %}" style="color: darkgray;" id="flag_answered">Unanswered</a>
+<a href="{% url 'answer' user.username 'answered' %}">Answered</a>
+{% endif %}
+
+{% if title == "answered" %}
+<a href="{% url 'answer' user.username 'unanswered' %}">Unanswered</a>
+<a href="{% url 'answer' user.username 'answered' %}" style="color: darkgray;" id="flag_answered">Answered</a>
+{% endif %}
+
+<!-- The admin requesting to view the questions assigned to a thera. Both the questions to be answerd by the thera and the questions to be confirmed by the thera -->
+{% if request_user.user_type == "admin" and user.user_type != "admin" %}
+<a href="{% url 'confirm' user.username 'unconfirmed' %}">Unconfirmed</a>
+<a href="{% url 'confirm' user.username 'confirmed' %}">Confirmed</a>
+{% endif %}
+
+<hr>
+{% for box in boxes %}
+
+    {% if box.questions %}
+        <div class="border border-primary box">
+            <br>
+            {% for q_a in box.q_a_list %}
+
+                {% if q_a.type == "question" %}
+                    <div style="font-size: large; margin-left: 10px; margin-right:10px">
+                        Q: {{ q_a.content.question|linebreaks }}
+                    </div>
+                    <p style="font-size: small; color:gray; margin-left: 10px">Asked at {{ q_a.content.timestamp }}</p>
+
+                <!-- {% if q_a.content.edited %}
+                    The User has edited this question. <button id="omit{{ q_a.content.id }}"
+                        class="btn btn-primary omit but">Omit</button>
+                {% endif %} -->
+
+                {% if not q_a.content.post %}
+                    <p style="color:gray; font-size: small; margin-left: 10px;" id="post_identifier{{ q_a.content.id }}">Waiting to be
+                    posted</p>
+                {% else %}
+                    <p style="color:gray; font-size: small; margin-left: 10px;" id="post_identifier{{ q_a.content.id }}">Already posted</p>
+                {% endif %}
+
+                <hr>
+                {% endif %}
+
+                {% if q_a.type == "answer" %}
+                    <div id="answer_box{{ q_a.content.id }}">
+                        <div style="font-size: large; margin-left: 10px; margin-right:10px" id="old_answer{{ q_a.content.id }}">
+                            A:{{ q_a.content.answer|linebreaks }}
+                        </div>
+                        <div id="div_edit{{ q_a.content.id }}" style="display:none">
+                            <textarea placeholder="Please enter your new reply" class="form-control textarea-small" id="edit_textarea{{ q_a.content.id }}"></textarea>
+                            <button class="btn btn-primary but inline-block save" id="save{{ q_a.content.id }}">Save</button>
+                            <button class="btn btn-outline-secondary but inline-block cancel" id="cancel{{ q_a.content.id }}">Cancel</button>
+                        </div>
+                        {% if request_user.user_type == "thera" and not q_a.content.confirmed %}
+                            <button class="btn btn-primary edit but" id="edit{{ q_a.content.id }}">Edit</button>
+                            <!-- <button class="btn btn-primary edit but" id="delete{{ q_a.content.id }}">Delete</button> -->
+                        {% endif %}
+                    </div>
+                    <div>
+                        <span style="font-size: small; color:gray; margin-left: 10px">Answered at {{ q_a.content.timestamp }}</span>
+                        <br>
+
+                        {% if not q_a.content.confirmed %}
+                            <span style="color:red; font-size: large; margin-left: 10px;">
+                                <strong id="confirm{{ q_a.content.id }}">Unconfirmed</strong>
+                            </span>
+                        {% else %}
+                            <span style="color:red; font-size: large; margin-left: 10px;">
+                                <strong id="confirm{{ q_a.content.id }}">Confirmed</strong>
+                            </span>
+                        {% endif %}
+
+                    </div>
+
+                    <hr>
+                {% endif %}
+
+            {% endfor %}
+
+                {% if request_user.user_type == "thera" and title == "unanswered" %}
+                    <form id="form{{ box.id }}" action="{% url 'answer' user.username 'answer' %}" method="post">
+                        <textarea class="form-control textarea-small" id="answer{{ box.id }}" placeholder="Your Reply" name="answer"></textarea>
+                        <input type="submit" class="btn btn-primary but" value="Submit" />
+                        <input type="hidden" name="box_id" value="{{ box.id }}" />
+                    </form>
+                {% endif  %}
+
+                {% if box.answered_by %}
+                    <p style="color:red; font-size: large; margin-left: 10px;">Assigned to <strong>{{ box.answered_by.username }}</strong> to answer and
+                        <strong>{{ box.confirmed_by.username }}</strong> to
+                        confirm
+                    </p>
+                {% else %}
+                    <p style="color:red; font-size: large; margin-left: 10px;"><strong>Unassigned</strong></p>
+                {% endif %}
+
+                {% if not box.answered %}
+                    <p style="color: red;margin-left:10px"><strong>Unanswered</strong></p>
+                {% else %}
+                    <p style="color: red;margin-left:10px"><strong>Answered</strong></p>
+                {% endif %}
+
+            <p style="color: red;margin-left:10px"><strong><i>{{ box.topic }}</i></strong></p>
+        </div>
+    {% endif %}
+
+    <br>
+
+{% endfor %}
+
+<script src=" {% static 'question_box/js/answer.js' %}" type="module">
+</script>
+{% endblock %}

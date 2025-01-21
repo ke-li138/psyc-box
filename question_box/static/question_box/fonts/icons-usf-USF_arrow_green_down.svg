@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="10px" viewBox="0 0 16 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Fill 3</title>
+    <g id="🖥-Visual-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="T10-Events" transform="translate(-234.000000, -1601.000000)" fill="#00543C">
+            <g id="filter" transform="translate(-25.000000, 1364.000000)">
+                <path d="M265.524005,241.998428 L271.292507,235.832512 C271.292507,235.832512 271.846308,235.140846 271.144409,234.376167 C270.465977,233.634898 269.782329,234.217881 269.782329,234.217881 L262.500521,241.995084 L262.503129,241.997871 L262.5,242.001772 L269.781287,249.777861 C269.781287,249.777861 270.429995,250.370319 271.144409,249.620132 C271.839007,248.893353 271.292507,248.162115 271.292507,248.162115 L265.524005,241.998428 Z" id="Fill-3" transform="translate(267.000000, 242.000000) rotate(-90.000000) translate(-267.000000, -242.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

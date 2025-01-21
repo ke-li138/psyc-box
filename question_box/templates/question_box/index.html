@@ -1,0 +1,114 @@
+{% extends "question_box/layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+Conselling Box
+{% endblock %}
+
+{% block img %}
+<img sizes="100vw 50vh" width="1600" height="1000" src="{% static 'question_box/my_images/Banner.jpg'%}"
+  alt="Students walk the stairs in Gleeson Library.">
+{% endblock %}
+
+{% block body %}
+<div class="f--field f--wysiwyg">
+  <h2>{% trans "解忧杂货箱" %}</h2>
+  <hr>
+  <p>{% trans "实验中学的解忧杂货箱意图帮助所有同学.如果你渴望得到帮助但不敢当面向老师和同学们表达，在这里你可以自由地倾诉！它可以是任何方面的困惑，家庭上，学业上，交友上，或者关于未来与发展。感觉友谊没有得到重视？考试前抑或考试后的焦虑？和父母吵架却不知如何走出？生活总有不如意，箱子的存在就是为了解决大家的烦恼。所有，尽管问!" %}</p>。
+  <!-- 实验中学的解忧杂货箱意图帮助所有同学.如果你渴望得到帮助但不敢当面向老师和同学们表达，在这里你可以自由地倾诉！
+  它可以是任何方面的困惑，家庭上，学业上，交友上，或者关于未来与发展。感觉友谊没有得到重视？考试前抑或考试后的焦虑？
+  和父母吵架却不知如何走出？生活总有不如意，箱子的存在就是为了解决大家的烦恼。所有，尽管问! -->
+  <p>{% trans "问，就会得到解答！我们会尽快将你的问题传递给一位心理爱好者，并在经过心理彭勃老师的核对后将回复发送到对话区。你也可以进一步跟进对话，我们相信通过这样的感受分享和多次互动，你会变得更好。" %}</p>
+    <!-- 问，就会得到解答！我们会尽快将你的问题传递给一位心理爱好者，并在经过心理彭勃老师的核对后将回复发送到对话区。
+    你也可以进一步跟进对话，我们相信通过这样的感受分享和多次互动，你会变得更好。 -->
+  <p>
+    {% trans "你的匿名对话将展示给所有登陆网站的同学，这可能会极大的帮助到更多承受压力和烦恼的同学！（查看" %}<a href="{% url 'all_questions' %}">“{% trans "所有问题" %}”</a>
+    {% trans "）说到匿名，请尽可能放心，所有的问题全部是匿名提出的。我们不会知道问题的发出者是谁，ta来自哪个年级，以及更多的个人信息。这些我们都不会知道。你甚至可以在注册账户中使用昵称，而不必透露任何姓名。如果你希望提供更多的背景信息，以供志愿者更具针对性的回复，完全可以在问题中加入！" %}
+    <!-- 你的匿名对话将展示给所有登陆网站的同学，这可能会极大的帮助到更多承受压力和烦恼的同学！（查看<a href="{% url 'all_questions' %}">所有问题</a>）说到匿名，
+    请尽可能放心，所有的问题全部是匿名提出的。我们不会知道问题的发出者是谁，ta来自哪个年级，以及更多的个人信息。这些我们都不会知道。
+    你甚至可以在注册账户中使用昵称，而不必透露任何姓名。如果你希望提供更多的背景信息，以供志愿者更具针对性的回复，完全可以在问题中加入！ -->
+  </p> 
+  <p>
+    {% trans "最后，我们改进了之前Tape提问箱的许多弊端，以及最重要的是，希望你能够喜欢！" %}
+    <!-- 最后，我们改进了之前Tape提问箱的许多弊端，以及最重要的是，希望你能够喜欢！ -->
+  </p>
+  <br>
+  <h3>{% trans "接下来你可以:" %}</h3>
+  <br>
+  <ul>
+    <li>
+      <p>
+      {% trans "让我们开始," %} <a href="{% url 'register' %}">“{% trans "注册" %}”</a> {% trans "一个帐户！" %}
+      <!-- 让我们开始，<a href="{% url 'register' %}">注册</a>一个帐户！ -->
+      </p>
+    </li>
+    <li>
+      <p>
+        {% trans "分享你的情绪状态！点击网页顶部的" %} <a href="{% url 'ask' %}">“{% trans "提出问题" %}”</a>
+        <!-- 分享你的情绪状态！点击网页顶部的<a href="{% url 'ask' %}">“提出问题”</a> -->
+      </p>
+    </li>
+    <li>
+      <p>
+        {% trans "获取更多灵感！查看网站顶部的" %} <a href="{% url 'all_questions' %}">“{% trans "所有问题" %}”</a>
+        <!-- 获取更多灵感！查看网站顶部的<a href="{% url 'all_questions' %}">“所有问题”</a> -->
+      </p>
+    </li>
+  </ul>
+  <!-- <p>SDSZ's Conselling Box, you can see what difficulties are facing your peers in the
+    <a href="{% url 'all_questions' %}">"All Questions"</a> page, and
+    share your own problems with us via the
+    <a href="{% url 'ask' %}">"Share Problems"</a> page. We will address each user a specific conseller to talk with.
+    Don't worry about your provicy: you can choose any nickname you like during the
+    sign up!
+  </p> -->
+  <!-- {% if lang == "en" %}
+
+  <p id="p1">SDSZ's Conselling Box is intended to help students to ajust their mental problems. If you are under a lot
+    of pressure, you could <a href="{% url 'ask' %}">share your problems</a> with us. We will assign a conselor to reply
+    to your problems and have one to one conversation with you on this website.
+  </p>
+  <p id="p2">Most of the time, people's mental stresses could be significantly alleviated just by knowing that others
+    are facing the same problems and seeing how others have overcome them. So, we are collecting the dialogues between
+    stressed students and our conselors, and your dialogues will be posted on this website (see <a
+      href="{% url 'all_questions' %}">All Questions</a>). Don't worry about your privacy, all your dialogues would be
+    anonymous, only the conselor you are talking to knows your name on this website (which is any nickname you would
+    like to make for yourself during registration)!</p>
+  <p id="p3">
+    Your sharing would be very helpful to those who are suffering from overwhelming pressure, and we really appreciate
+    that!
+  </p>
+  <a id="view" class="link " href="{% url 'all_questions' %}">View All the Questions</a>
+  &nbsp &nbsp &nbsp
+  <a id="share" class="link " href="{% url 'ask' %}">Share Problems With Us</a>
+
+  {% else %}
+
+  <p id="p1">SDSZ's 心理咨询箱 is intended to help students to ajust their mental problems. If you are under a lot
+    of pressure, you could <a href="{% url 'ask' %}">share your problems</a> with us. We will assign a conselor to reply
+    to your problems and have one to one conversation with you on this website.
+  </p>
+  <p id="p2">Most of the time, people's mental stresses could be significantly alleviated just by knowing that others
+    are facing the same problems and seeing how others have overcome them. So, we are collecting the dialogues between
+    stressed students and our conselors, and your dialogues will be posted on this website (see <a
+      href="{% url 'all_questions' %}">All Questions</a>). Don't worry about your privacy, all your dialogues would be
+    anonymous, only the conselor you are talking to knows your name on this website (which is any nickname you would
+    like to make for yourself during registration)!</p>
+  <p id="p3">
+    Your sharing would be very helpful to those who are suffering from overwhelming pressure, and we really appreciate
+    that!
+  </p>
+  <a id="view" class="link " href="{% url 'all_questions' %}">View All the Questions</a>
+  &nbsp &nbsp &nbsp
+  <a id="share" class="link " href="{% url 'ask' %}">Share Problems With Us</a>
+
+  {% endif %} -->
+</div>
+<!-- <script>
+  document.querySelector("#lang").onchange = () =>
+  {
+    document.querySelector("#h3").innerText = "SDSZ 心理提问箱";
+  }
+</script> -->
+{% endblock %}

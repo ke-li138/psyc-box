@@ -1,0 +1,50 @@
+{% extends "question_box/layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+Conselling Box
+{% endblock %}
+
+{% block img %}
+<img sizes="100vw 50vh" width="1600" height="1000" src="{% static 'question_box/my_images/all_questions.jpg'%}"
+    alt="Students walk the stairs in Gleeson Library.">
+{% endblock %}
+
+{% block body %}
+<div class="f--field f--wysiwyg">
+    <h2>{% trans "所有问题" %}</h2>
+</div>
+<hr />
+{% for box in boxes %}
+<div class="border border-success box">
+    <br />
+    {% for q_a in box.q_a_list %}
+
+    {% if q_a.type == "question" %}
+    <div style="margin-left: 10px; margin-right: 100px;">
+        <span class="large">Q: {{ q_a.content.question|linebreaks }}</span>
+        <!-- <p style="font-size: small; color:gray">{% trans "提问于" %} {{ q_a.content.timestamp }}</p> -->
+    </div>
+    <br>
+
+    {% elif q_a.type == "answer"  %}
+    {% if q_a.content.confirmed %}
+        <div style="margin-left: 100px; margin-right: 10px; font-size: large; color: darkgreen" class="answer">
+            <span style="font-size: large; color: darkgreen"><i>A: {{ q_a.content.answer|linebreaks }}</i></span>
+            <!-- <p style="font-size: small; color:gray">{ trans "回答于" %} {{ q_a.content.timestamp }}</p> -->
+        </div>
+        <br>
+    {% endif %}
+    {% endif %}
+
+    {% endfor %}
+</div>
+<br />
+{% endfor %}
+<style>
+    div.answer p {
+        color: darkgreen
+    }
+</style>
+{% endblock %}

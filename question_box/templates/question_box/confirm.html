@@ -1,0 +1,114 @@
+{% extends "question_box/layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+{% if user.user_type == "admin" %}
+Confirmation
+{% else %}
+{{ user.username }}'s Confirmation
+{% endif %}
+{% endblock %}
+
+{% block body %}
+
+{% if user.user_type == "admin" %}
+    <h2 id="{{ user.username }}">Confirmation</h2>
+{% else %}
+    <h2 id="{{ user.username }}">{{ user.username }}'s Confirmation</h2>
+{% endif %}
+
+{% if request_user.user_type == "admin" and user.user_type != "admin" %}
+    <a href="{% url 'answer' user.username 'unanswered' %}">Unanswered</a>
+    <a href="{% url 'answer' user.username 'answered' %}">Answered</a>
+{% endif %}
+
+{% if title == "unconfirmed" %}
+    <a href="{% url 'confirm' user.username 'unconfirmed' %}" style="color: darkgray;">Unconfirmed</a>
+    <a href="{% url 'confirm' user.username 'confirmed' %}">Confirmed</a>
+{% endif %}
+
+{% if title == "confirmed" %}
+    <a href="{% url 'confirm' user.username 'unconfirmed' %}">Unconfirmed</a>
+    <a href="{% url 'confirm' user.username 'confirmed' %}" style="color: darkgray;">Confirmed</a>
+{% endif %}
+
+<hr>
+{% for box in boxes %}
+    <div class="border border-primary box">
+        <br>
+        {% for q_a in box.q_a_list %}
+
+            {% if q_a.type == "question" %}
+                <div class = "large" style="margin-left:10px; margin-right:10px">Q: {{ q_a.content.question|linebreaks }}</div> 
+                <p style="font-size: small;color:gray;margin-left:10px">Asked at {{ q_a.content.timestamp }}</p>
+                <hr>
+            {% endif %}
+
+            {% if q_a.type == "answer" %}
+                <div class = "large" style="margin-left:10px; margin-right:10px">A: {{ q_a.content.answer|linebreaks }}</div>
+
+                {% if request_user.user_type == "thera" %}
+
+                    <div id="div_edit{{ q_a.content.id }}" style="display: none;">
+                        <textarea placeholder="Please enter your new reply" class="form-control textarea-small" id="edit_textarea{{ q_a.content.id }}"></textarea>
+                        <button class="btn btn-primary but inline-block save" id="save{{ q_a.content.id }}">Save</button>
+                        <button class="btn btn-outline-secondary but inline-block edit_cancel" id="edit_cancel{{ q_a.content.id }}">Cancel</button>
+                    </div>
+                    <div id="div_button{{ q_a.content.id }}">
+                        {% if q_a.content.confirmed %}
+                            <button class="btn btn-primary inline-block confirm" id="confirm{{ q_a.content.id }}" style="margin-left:10px">Unconfirm</button>
+                        {% else %}
+                            <button class="btn btn-primary inline-block confirm" id="confirm{{ q_a.content.id }}" style="margin-left:10px">Confirm</button>
+                        {% endif %}
+                    <button class="btn btn-primary but inline-block edit" id="edit{{ q_a.content.id }}" style="margin-left:10px">Edit</button>
+                    </div>
+                    <br>
+                
+                {% else %}
+
+                    {% if q_a.content.confirmed %}
+                    <p style="color: red;margin-left:10px"><strong>Confirmed</strong></p>
+                    {% else %}
+                    <p style="color: red;margin-left:10px"><strong>Unconfirmed</strong></p>
+                    {% endif %}
+
+                {% endif %}
+                <br>
+                <p style="font-size: small;color:gray;margin-left:10px">Answered at {{ q_a.content.timestamp }}</p>
+                <hr>
+                
+            {% endif %}
+
+        {% endfor %}
+
+        {% if box.answered_by %}
+            <p style="color: red;margin-left:10px">Assigned to <strong>{{ box.answered_by.username }}</strong> to answer and 
+                <strong>{{ box.confirmed_by.username }}</strong> to confirm</p>
+        {% else %}
+            <p style="color:red; font-size: large; margin-left: 10px;"><strong>Unassigned</strong></p>
+        {% endif %}
+        
+            {% if not box.answered %}
+                <p style="color: red;margin-left:10px"><strong>Unanswered</strong></p>
+                <form id="div_answer{{ box.id }}" action="{% url 'confirm' user.username 'answer' %}" method="post" style="display: none;">
+                    <textarea class="form-control textarea-small" id="answer_textarea{{ box.id }}" placeholder="Your Reply" name="answer"></textarea>
+                    <input type="submit" class="btn btn-primary but inline-block submit" value="Submit" id="submit{{ box.id }}" />
+                    <input type="hidden" name="box_id" value="{{ box.id }}" />
+                    <button type="button" class="btn btn-outline-secondary but inline-block answer_cancel" id="answer_cancel{{ box.id }}">Cancel</button>
+                </form>
+                <button class="btn btn-primary answer" id="answer{{ box.id }}" style="margin-left:10px">Answer</button>
+                <br><br>
+            {% else %}
+                <p style="color: red;margin-left:10px"><strong>Answered</strong></p>
+            {% endif %}
+
+        <p style="color: red;margin-left:10px"><strong><i>{{ box.topic }}</i></strong></p>
+    </div>
+    <br>
+{% endfor %}
+<script src="{% static 'question_box/js/confirm.js' %}">
+
+
+</script>
+{% endblock %}

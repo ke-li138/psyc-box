@@ -1,0 +1,57 @@
+.box {
+  border-radius: 25px;
+  width: 80%;
+  margin: auto;
+  border-color:darkgreen;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.gray {
+  color:gray;
+}
+
+.darkgreen {
+  color:darkgreen;
+}
+
+.small {
+  font-size:small;
+}
+
+.small-gray {
+  font-size: small;
+  color:gray;
+}
+
+.x-large {
+  font-size: x-large;
+}
+
+.large {
+  font-size: large;
+}
+
+.textarea-big {
+  min-height: 250px;
+} 
+
+.textarea-small {
+  width: calc(100% - 20px);
+  height: 250px;
+  margin: 10px;
+}
+
+.but {
+  margin: 10px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.margin-left-10 {
+  margin-left: 10px;
+}

@@ -1,0 +1,45 @@
+{% extends "question_box/layout.html" %}
+{% load static %}
+{% block body %}
+{% load i18n %}
+
+<h2>Create New Therapists</h2>
+{% if message %}
+<div style="margin-left: 10px;">{{ message }}</div>
+{% endif %}
+
+<form action="{% url 'therapists' 'create' %}" method="post">
+    <!-- {% csrf_token %} -->
+    <div class="form-group">
+        <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+    </div>
+    <br>
+    <div class="form-group">
+        <input class="form-control" type="email" name="email" placeholder="Email Address">
+    </div>
+    <br>
+    <div class="form-group">
+        <input class="form-control" type="password" name="password" placeholder="Password">
+    </div>
+    <br>
+    <div class="form-group">
+        <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="select-topic">Assign the therapist a topic</label>
+        <select class="form-control form-select-lg mb-3" aria-label=".form-select-lg example" id="select-topic"
+            name="topic">
+            <option value="family">Family</option>
+            <option value="study">Study</option>
+            <option value="social">Social</option>
+            <option value="personal development">Personal Development</option>
+            <!-- <option value="climate">Climate</option> -->
+            <option value="other">Other</option>
+            <option value="confirm">Confirm</option>
+        </select>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Create">
+</form>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "question_box/layout.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block img %}
+<img sizes="100vw 50vh" width="1600" height="1000" src="{% static 'question_box/my_images/ask.jpg'%}"
+    alt="Students walk the stairs in Gleeson Library.">
+{% endblock %}
+
+{% block body %}
+<div class="f--field f--wysiwyg">
+    <h2>{% trans "和我们分享您的问题!" %}</h2>
+    <p>{% trans "如果您不想公布您的对话，请在问题的开头写上：（我不想公开这段对话）" %}</p>
+    <p>{% trans "注意：问题提交之后不能更改" %}</p>
+</div>
+<hr>
+<form action="{% url 'ask' %}" method="post" style="color:darkgreen">
+    <!-- {% csrf_token %} -->
+    <textarea style="height:300px;" class="form-control is-valid textarea-big" name="question" placeholder="{% trans '在这里提出您的问题！' %}"
+        required></textarea>
+    <br>
+    <label for="select-topic"><span class="large">{% trans "请给您的问题选择一个类别" %} </span></label>
+    <select class="form-control form-select-lg mb-3" aria-label=".form-select-lg example" id="select-topic"
+        name="topic">
+        <option value="family">{% trans "家庭" %}</option>
+        <option value="study">{% trans "学业" %}</option>
+        <option value="social">{% trans "社交" %}</option>
+        <option value="personal development">{% trans "个人发展" %}</option>
+        <!-- <option value="climate">气候焦虑</option> -->
+        <option value="other">{% trans "其他" %}</option>
+    </select>
+    <input type="button" class="btn btn-success" id="but" value="{% trans '提交' %}" style="margin: top 5px" />
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        button = document.querySelector('#but');
+        button.onclick = () => {
+            if(confirm("{% trans '您确定要提交吗？请注意，您的问题无法进行修改' %}"))
+            {
+                document.querySelector('form').submit()
+            }
+        }
+
+        button.disabled = true;
+
+        textarea = document.querySelector('textarea');
+
+        //Disable the submit button when the textarea is empty
+        textarea.addEventListener('input', () => {
+            if (textarea.value.trim() === '') {
+                button.disabled = true;
+            }
+            else {
+                button.disabled = false;
+            }
+        });
+
+        // document.querySelector('form').onsubmit = () => {
+        //     alert( "Thank you for contacting us! We will Contact you soon!" );
+        // }
+    })
+</script>
+<!-- <script src="{% static 'question_box/js/ask.js' %}"></script> -->
+{% endblock %}

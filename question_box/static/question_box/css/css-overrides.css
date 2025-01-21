@@ -1,0 +1,7 @@
+body.transparent-header.user-logged-in .tc--program-page {
+  margin-top: -214px;
+}
+
+body.user-logged-in:not(.transparent-header) .tc--landing-page {
+  margin-top: 0;
+}

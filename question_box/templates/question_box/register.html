@@ -1,0 +1,42 @@
+{% load static%}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Question Box</title>
+        <link rel="stylesheet" href="{% static 'question_box/css/bootstrap.min.css' %}">
+        <link href="{% static 'question_box/css/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <h2 style="margin:10px">{% trans '注册' %}</h2>
+
+    {% if message %}
+        <div style="margin-left: 10px;">{{ message }}</div>
+    {% endif %}
+
+        <form action="{% url 'register' %}" method="post" style="margin:10px">
+            <!-- {% csrf_token %} -->
+            <div class="form-group">
+                <input class="form-control" autofocus type="text" name="username" placeholder="{% trans '用户名' %}">
+            </div>
+            <br>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="{% trans '邮箱' %}">
+            </div>
+            <br>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="{% trans '密码' %}">
+            </div>
+            <br>
+            <div class="form-group">
+                <input class="form-control" type="password" name="confirmation" placeholder="{% trans '重新输入密码' %}">
+            </div>
+            <br>
+            <input class="btn btn-primary" type="submit" value="{% trans '注册' %}">
+        </form>
+
+       <span style="margin:10px">{% trans '已有账户？' %}<a href="{% url 'login' %}">{% trans '登录' %}</a></span>
+
+    </body>
+</html>

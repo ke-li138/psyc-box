@@ -1,0 +1,81 @@
+{% extends "question_box/layout.html" %} 
+{% load static %} 
+{% load i18n %}
+
+{% block title %} 
+    Post 
+{% endblock %} 
+
+{% block body %} 
+    <h2>Post</h2> 
+{% if title == "unposted" %} 
+    <a href="{% url 'post' 'unposted' %}" style="color: darkgray;">Unposted</a>
+    <a href="{% url 'post' 'posted' %}">Posted</a> 
+{% endif %} 
+
+{% if title == "posted" %} 
+    <a href="{% url 'post' 'unposted' %}">Unposted</a>
+    <a href="{% url 'post' 'unposted' %}" style="color: darkgray;">Posted</a>
+{% endif %}
+
+<hr> 
+{% for box in boxes %} 
+    <div class="border border-primary box">
+        <br> 
+
+        {% for q_a in box.q_a_list %} 
+
+            {% if q_a.type == "question" %} 
+                <div class = "large" style="margin-left:10px; margin-right:10px">Q: {{ q_a.content.question|linebreaks }}</div>
+                <p style="font-size: small; color:gray; margin-left:10px">Asked at {{ q_a.content.timestamp }}</p>
+                
+                {% if q_a.content.post %} 
+                    <button class="btn btn-primary {{ q_a.type }}" id="post{{ q_a.type }}{{ q_a.content.id }}" style="margin-left:10px">Unpost</button> 
+                {% else %}
+                    <button class="btn btn-primary {{ q_a.type }}" id="post{{ q_a.type }}{{ q_a.content.id }}" style="margin-left:10px">Post</button> 
+                {% endif %}
+
+                    <br><br> 
+            {% elif q_a.type == "answer" %} 
+                <div class = "large" style="margin-left:10px; margin-right:10px">A: {{ q_a.content.answer|linebreaks }}</div>
+                <p style="font-size: small; color:gray; margin-left:10px">Asked at {{ q_a.content.timestamp }}</p>
+                
+                {% if q_a.content.confirmed %}
+
+                    {% if q_a.content.post %} 
+                        <button class="btn btn-primary {{ q_a.type }}" id="post{{ q_a.type }}{{ q_a.content.id }}" style="margin-left:10px">Unpost</button> 
+                    {% else %}
+                        <button class="btn btn-primary {{ q_a.type }}" id="post{{ q_a.type }}{{ q_a.content.id }}" style="margin-left:10px">Post</button> 
+                    {% endif %}
+
+                {% else %}
+                    <p style="color: red;margin-left:10px"><strong>Unconfirmed</strong></p>
+                {% endif %}
+
+            {% endif %}
+            <hr>
+        {% endfor %}
+
+        {% if box.answered_by %}
+            <p style="color:red; font-size: large; margin-left: 10px;">Assigned to <strong>{{ box.answered_by.username }}</strong> to answer and
+                <strong>{{ box.confirmed_by.username }}</strong> to
+                confirm
+            </p>
+        {% else %}
+            <p style="color:red; font-size: large; margin-left: 10px;"><strong>Unassigned</strong></p>
+        {% endif %}
+
+        <div>
+            {% if not box.answered %}
+                <p style="color:red; font-size: large; margin-left: 10px;"><strong>Unanswered</strong></p>
+            {% else %}
+                <p style="color:red; font-size: large; margin-left: 10px;"><strong>Answered</strong></p>
+            {% endif %}
+        </div>
+        <p style="color: red;margin-left:10px"><strong><i>{{ box.topic }}</i></strong></p>
+    </div>
+    <br> 
+{% endfor %}
+
+<script src="{% static 'question_box/js/post.js' %}"  type="module"></script> 
+{% endblock %}
