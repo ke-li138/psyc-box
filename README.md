@@ -5,4 +5,4 @@ This project requires three types of users, the administrators, the users, and t
 
 If you're not logged in, you could only see the questions asked by the users and the replies written by the therapists posted on the Home Page.
 
-View at https://psyc-box.azurewebsites.net/
+View at https://psyc-box.azurewebsites.net/ (Originnally on psyc-box.com, but temporarily shut down for testing)
